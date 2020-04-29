@@ -3,9 +3,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
     <title>Elements</title>
 </head>
 <body>
-    ex
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAsRXcUR_VLJCMn96AmBUkI-z-pw1joKSc",
+        authDomain: "kasasapp-4cbc5.firebaseapp.com",
+        databaseURL: "https://kasasapp-4cbc5.firebaseio.com",
+        projectId: "kasasapp-4cbc5",
+        storageBucket: "kasasapp-4cbc5.appspot.com",
+        messagingSenderId: "27957987620",
+        appId: "1:27957987620:web:3a1a2aaac1909e2609cbb1",
+        measurementId: "G-5GD85307F1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    //make auth and roestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    //update firestore settings 
+    //db.settings({ timestampsInSnapshots: true });
+    </script>
+
+    <!--Compiled and minified Javascript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
