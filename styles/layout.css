@@ -1,0 +1,152 @@
+
+
+/* IMPORT FONTS */
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+body{
+    margin: 0;
+    background-color: rgb(226, 226, 226);
+}
+
+    /* NAVIGATION STYLING */
+.leftNav{
+    width: 170px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 05s;
+    position: fixed;
+    background-color: white;
+}
+.leftNav .leftNavLogo{
+    width: 100%;
+    height: 100px;
+    background-image: url('../images/logowithtext.PNG');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.leftNav a{
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    display: block;
+    font-size: 12pt;
+    transition: 0.2s;
+    color: black;
+    width: 100%;
+    padding-left:45px;
+    line-height: 60px;
+}
+
+.leftNav a:hover{
+    background-color: rgb(212, 212, 212);
+    width: 100%;
+}
+.laftNavLinks{
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.linkIcon{
+    margin-right: 10px;
+}
+.leftNavProfile{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+.leftNavProfile .leftNavProfileImage{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(216, 211, 211);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+
+    /* RIGHT NAV STYLING */
+
+    .rightNav{
+        width: 250px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        overflow-x: hidden;
+        transition: 05s;
+        position: fixed;
+        background-color: white;
+    }
+
+    .rightNav .rightNavBadge{
+        width: 100%;
+        height: 100px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        box-shadow: 10px 2px 5px rgb(243, 243, 243);
+    }
+    
+    .rightNav .rightNavBadge .settingsIcon{
+        background-color: rgb(216, 211, 211);
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        float: left;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-bottom: auto;
+    }
+    .rightNav .rightNavBadge .notificationText{
+        float: left;
+        margin-top: 10px;
+    }
+    .rightNav .rightNavBadge .rightNavContent{
+        float: left;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+    /* MAIN BODY STYLING */
+
+    .mainBody{
+        background-color: yellow;
+        margin-left: 180px;
+        margin-right: 260px;
+        z-index: 999;
+        float: left;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .row{
+        padding: 5px;
+    }
+    .col{
+        margin-top: 5px;
+        background: white;
+        margin: 5px;
+        line-height: 60px;
+    }
+
+    .userTile{
+        width: 250px;
+        height: 150px;
+        padding: 10px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        background-color: white;
+        margin: 5px;
+        display: inline-block;
+    }
