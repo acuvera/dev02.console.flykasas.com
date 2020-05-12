@@ -217,6 +217,36 @@ ul.top-menu > li > .logout {
     font-weight: bold;
 }
 
+ul.top-menu > li > .top-menu-notification {
+    color: #f2f2f2;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+	font-size: 12px;
+	-webkit-border-radius: 50%;
+	margin-right: 15px;
+	background: black;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 45px;
+}
+
+ul.top-menu > li > .top-menu-notification:hover {
+    color: black;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+	font-size: 12px;
+	-webkit-border-radius: 50%;
+	margin-right: 15px;
+	background: white;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 45px;
+}
+
 
 /*sidebar navigation*/
 
@@ -844,7 +874,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 /* MAIN CHART CONFIGURATION */
 .main-chart {
-	padding-top: 20px;
+    padding-top: 20px;
+    width: 100%;
 }
 
 .border-head h3 {
@@ -953,7 +984,7 @@ PANELS CONFIGURATIONS
 /*Panel Size*/
 
 .pn {
-	height: 120px;
+	height: 150px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 

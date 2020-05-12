@@ -4,10 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-
+    
     <title>Kasas Console</title>
 </head>
 <body class = "grey lighten-3">
@@ -15,7 +16,7 @@
 
       <!-- NAVBAR -->
   <nav class="z-depth-0 grey lighten-4">
-    <div class="nav-wrapper container">
+    <div class="nav-wrapper topNavBar">
       <a href="#" class="brand-logo">
         <img src="images/plane.svg" style="width: 45px; margin-top: 10px;">
       </a>
@@ -32,11 +33,14 @@
           <li class="logged-in" style="display: none;">
             <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Something</a>
           </li>
+          <li class="logged-in" style="display: none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-add-handover-item">Add Handover Item</a>
+          </li>
           <li class="logged-out" style="display: none;">
             <a href="#" class="black-text modal-trigger" data-target="modal-login">Login</a>
           </li>
           <li class="logged-out" style="display: none;">
-            <a href="#" class="black-text modal-trigger" data-target="modal-signup">Register</a>
+            <a href="#" class="black-text modal-trigger" data-target="modal-signup">Create Account</a>
           </li>
       </ul>
     </div>
@@ -57,7 +61,7 @@
     <a href="#" class="black-text modal-trigger" data-target="modal-login">Login</a>
     </li>
     <li class="logged-out" style="display: none;">
-    <a href="#" class="black-text modal-trigger" data-target="modal-signup">Register</a>
+    <a href="#" class="black-text modal-trigger" data-target="modal-signup">Create Account</a>
     </li>
   </ul>
 
@@ -68,16 +72,45 @@
 
     <div id="modal-signup" class="modal">
         <div class="modal-content">
-            <h4>Register</h4><br/>
+            <h5>Add User</h5><br/>
             <form id="register-form">
+
+                <div class="input-field">
+                    <input type="text" id="register-name" required/>
+                    <label for="register-name">Name:</label>
+                </div>
+
                 <div class="input-field">
                     <input type="email" id="register-email" required/>
                     <label for="register-email">Email:</label>
                 </div>
+
                 <div class="input-field">
                     <input type="password" id="register-password" required>
-                    <label for="register-password">Choose password</label>
+                    <label for="register-password">Password:</label>
                 </div>
+
+                <div class="input-field">
+                    <select id="register-department">
+                      <option value="" disabled selected>Select Department</option>
+                      <option value="Flight Crew">Flight Crew</option>
+                      <option value="Operations">Operations</option>
+                      <option value="Maintenance">Maintenance</option>
+                    </select>
+                    <label>Department</label>
+                </div>
+                
+                <div class="input-field">
+                    <select id="register-position">
+                      <option value="" disabled selected>Select Position</option>
+                      <option value="Captain">Captain</option>
+                      <option value="Co-Pilot">Co-Pilot</option>
+                      <option value="Operations">Operations Officer</option>
+                      <option value="Engineer">Engineer</option>
+                    </select>
+                    <label>Position</label>
+                </div>
+
                 <button class="btn black darken-2 z-depth-0">Register</button>
             </form>
         </div>
@@ -130,6 +163,51 @@
         </div>
     </div>
 
+    <!--Add Handover Item-->
+
+    <div id="modal-add-handover-item" class="modal">
+        <div class="modal-content">
+            <h6>Add handover item</h6>
+            <form id="add-handover-item-form">
+                <div class="input-field">
+                    <input type="text" id="QuestionTitle" required>
+                    <label for="title">Question Title</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="QuestionItem" required>
+                    <label for="title">Handover Item</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="questionCode" required>
+                    <label for="title">Item COde</label>
+                </div>
+
+                <div class="input-field">
+                    <select id="positionQuestion">
+                      <option value="" disabled selected>Select Position</option>
+                      <option value="Captain">Captain</option>
+                      <option value="Co-Pilot">Co-Pilot</option>
+                      <option value="Operations">Operations Officer</option>
+                      <option value="Engineer">Engineer</option>
+                    </select>
+                    <label>Position</label>
+                </div>
+                <div class="input-field">
+                    <select id="stationQuestion">
+                      <option value="" disabled selected>Select Station</option>
+                      <option value="Captain">Juba</option>
+                      <option value="Co-Pilot">Kalemie</option>
+                      <option value="Operations">Bamako</option>
+                      <option value="Engineer">Mogadishu</option>
+                      <option value="Engineer">Nairobi</option>
+                    </select>
+                    <label>Position</label>
+                </div>
+                <button class="btn black darken-2 z-depth-0">Add Item</button>
+            </form>
+        </div>
+    </div>
+
     <!--Guide List-->
     <div class="container" style="margin-top: 40px;">
         <ul class="collapsible z-depth-0 guides" style="border: none;">
@@ -149,14 +227,14 @@
     <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-        apiKey: "AIzaSyAsRXcUR_VLJCMn96AmBUkI-z-pw1joKSc",
-        authDomain: "kasasapp-4cbc5.firebaseapp.com",
-        databaseURL: "https://kasasapp-4cbc5.firebaseio.com",
-        projectId: "kasasapp-4cbc5",
-        storageBucket: "kasasapp-4cbc5.appspot.com",
-        messagingSenderId: "27957987620",
-        appId: "1:27957987620:web:3a1a2aaac1909e2609cbb1",
-        measurementId: "G-5GD85307F1"
+        apiKey: "AIzaSyBEiNQ_EujvWdA0_buS7zgh_rjp3LJSenQ",
+        authDomain: "kasas-1-0.firebaseapp.com",
+        databaseURL: "https://kasas-1-0.firebaseio.com",
+        projectId: "kasas-1-0",
+        storageBucket: "kasas-1-0.appspot.com",
+        messagingSenderId: "738491199443",
+        appId: "1:738491199443:web:af1b35be37d7e0c290c926",
+        measurementId: "G-0ZSDKP017Z"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);

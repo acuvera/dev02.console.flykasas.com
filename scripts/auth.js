@@ -44,6 +44,12 @@ registgerForm.addEventListener('submit', (e) => {
     //Register user
     //an asyncronous task
     auth.createUserWithEmailAndPassword(email, password).then(cred =>{
+        return db.collection('users').doc(cred.user.uid).set({
+            name : registgerForm['register-name'].value,
+            department : registgerForm['register-department'].value,
+            position : registgerForm['register-position'].value
+        });
+    }).then(() => {
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
         registgerForm.reset();
@@ -74,3 +80,24 @@ loginForm.addEventListener('submit', (e) => {
         loginForm.reset();
     })
 } )
+
+
+//Add Handover Item
+const createHandoverItem = document.querySelector('#add-handover-item-form');
+createHandoverItem.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('CaptainQuestionItems').add({
+        CheckBox : false,
+        QuestionTitle : createHandoverItem['QuestionTitle'].value,
+        QuestionItem : createHandoverItem['QuestionItem'].value,
+        positionQuestion : createHandoverItem['positionQuestion'].value,
+        stationQuestion : createHandoverItem['stationQuestion'].value,
+        questionCode : createHandoverItem['questionCode'].value
+    }).then(() => {
+        //close modal
+        const modal = document.querySelector('#modal-add-handover-item');
+        M.Modal.getInstance(modal).close();
+    }).catch(err => {
+        console.log(err.message);
+    })
+})

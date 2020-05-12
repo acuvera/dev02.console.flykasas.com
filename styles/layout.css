@@ -150,3 +150,10 @@ body{
         margin: 5px;
         display: inline-block;
     }
+
+    /* NAVBAR STYLING */
+    .topNavBar{
+        box-sizing: border-box;
+        padding-left: 40px;
+        padding-right: 30px
+    }
