@@ -31,10 +31,10 @@
             <a href="#" class="grey-text" id="logout">Logout</a>
           </li>
           <li class="logged-in" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Something</a>
+            <a href="#" class="grey-text modal-trigger admin" data-target="modal-create">Create Something</a>
           </li>
           <li class="logged-in" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-add-handover-item">Add Handover Item</a>
+            <a href="#" class="grey-text modal-trigger admin" data-target="modal-add-handover-item">Add Handover Item</a>
           </li>
           <li class="logged-out" style="display: none;">
             <a href="#" class="black-text modal-trigger" data-target="modal-login">Login</a>
@@ -54,7 +54,7 @@
     <li class="logged-in" style="display: none;">
     <a href="#" class="grey-text" id="logout">Logout</a>
     </li>
-    <li class="logged-in" style="display: none;">
+    <li class="admin" style="display: none;">
     <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Something</a>
     </li>
     <li class="logged-out" style="display: none;">
@@ -144,6 +144,12 @@
         </div>
     </div>
 
+    <!-- ADMIN ACTIONS -->
+    <form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display: none;">
+        <input type="email" placeholder="User Email..." id="admin-email" required />
+        <button class="btn-small yellow darken-2 x-depth-0">Make Admin</button>
+    </form>
+
     <!--Modal craeate something-->
 
     <div id="modal-create" class="modal">
@@ -203,6 +209,18 @@
                     </select>
                     <label>Position</label>
                 </div>
+                <p>Has attachment?</p>
+                <p>
+                    <label>
+                        <input name="hasAttachment" class="with-gap" value="false" type="radio" checked />
+                        <span>No</span>
+                      </label>
+                      <label>
+                        <input name="hasAttachment" class="with-gap" value="true" type="radio" />
+                        <span>Yes</span>
+                      </label>
+                </p>
+
                 <button class="btn black darken-2 z-depth-0">Add Item</button>
             </form>
         </div>
@@ -219,6 +237,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-functions.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -243,6 +262,7 @@
     //make auth and roestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
+    const functions = firebase.functions();
 
     //update firestore settings 
     //db.settings({ timestampsInSnapshots: true });

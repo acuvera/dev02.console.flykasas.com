@@ -1,23 +1,41 @@
 
 //listen for auth status changes 
 auth.onAuthStateChanged(user => {
+    console.log(user)
     if (user){
-        //get data
-        db.collection('stations').onSnapshot(snapshot => {
-            setupGuides(snapshot.docs);
+        //check if user is admin
+        user.getIdTokenResult().then(idTokenResult => {
+            user.admin = idTokenResult.claims.admin;
             setupUI(user);
         })
+        //get data
+        db.collection('CaptainQuestionItems').onSnapshot(snapshot => {
+            setupGuides(snapshot.docs);
+        }, err => {
+            console.log(err.message)
+        });
     } else{
         setupUI() 
         setupGuides([]);
     }
 });
 
+//add admin cloud function
+const adminForm = document.querySelector('.admin-actions');
+adminForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const adminEmail = document.querySelector('#admin-email').value;
+    const addAdminRole = functions.httpsCallable('addAdminRole');
+    addAdminRole({email: adminEmail }).then(result => {
+        console.log(result);
+    })
+})
+
 //create new something
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    db.collection('stations').add({
+    db.collection('CaptainQuestionItems').add({
         Country: createForm['title'].value,
         Name: createForm['content'].value
     }).then(() => {
@@ -65,7 +83,6 @@ logout.addEventListener('click', (e) => {
 });
 
 //Log in user 
-
 const  loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault(0);
@@ -92,7 +109,7 @@ createHandoverItem.addEventListener('submit', (e) => {
         QuestionItem : createHandoverItem['QuestionItem'].value,
         positionQuestion : createHandoverItem['positionQuestion'].value,
         stationQuestion : createHandoverItem['stationQuestion'].value,
-        questionCode : createHandoverItem['questionCode'].value
+        questionCode : createHandoverItem['questionCode'].value,
     }).then(() => {
         //close modal
         const modal = document.querySelector('#modal-add-handover-item');
