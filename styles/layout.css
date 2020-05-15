@@ -6,6 +6,7 @@
 body{
     margin: 0;
     background-color: rgb(226, 226, 226);
+    height: 0;
 }
 
     /* NAVIGATION STYLING */
@@ -157,3 +158,139 @@ body{
         padding-left: 40px;
         padding-right: 30px
     }
+
+    /* STYLING FOR LOGIN PAGE */
+    .login-page-content{
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+    .loginArea{
+        width: 50%;
+        float: left;
+        height: inherit;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    .login-page-right-pane{
+        position: relative;
+        background-color: rgb(255, 251, 251);
+    }
+    .login-page-right-pane img{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+    .login-page-left-pane{
+        position: relative;
+    }
+
+    .login-page-left-pane .login-form-container{
+        height: 50%;
+        width: 60%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .login-page-left-pane .login-form-container .loginBtn{
+        width: 50%;
+        float: right;
+        background-color: black;
+    }
+    .login-page-left-pane 
+    .login-form-container 
+    .loginBtn:hover{
+       color: black;
+       background-color: white;
+       border: 1px black solid;
+       font-weight: bold;
+    }
+    /* END OF STYLING FOR LOGIN PAGE */
+
+    /* STYLING FOR MAIN CONTENT AREA */
+
+
+    /* STYLING FOR ADDING USER */
+.add-user-section{
+    width: 50%;
+    float: left;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+}
+
+.add-user-image-section{
+    width: 50%;
+    float: left;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+}
+
+.register-label{
+    font-size: 14pt;
+}
+
+.create-user-form-area{
+    width: 300px;
+    height: 450px;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.create-user-image-area{
+    width: 300px;
+    height: 450px;
+}
+
+.create-user-image-area img{
+    width: 200px;
+    height: 250px;
+}
+
+.registerBtn{
+    background-color: black;
+    color: white;
+    float: right;
+    border: 0;
+    font-size: 12pt;
+}
+.registerBtn:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+
+/* ADD HANDOVER ITEM STYLING */
+
+.add-handover-item-section{
+    width: 100%;
+    float: left;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+}
+.addItemBtn{
+    background-color: black;
+    color: white;
+    float: right;
+    border: 0;
+    font-size: 12pt;
+}
+addItemBtn:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}

@@ -54,7 +54,7 @@ const setupGuides = (data) => {
 
         guideList.innerHTML = html;
 }else{
-    guideList.innerHTML = '<h5 class="center-align">Log in to FlyKasas</h5>'
+    guideList.innerHTML = ``
 }
 }
 

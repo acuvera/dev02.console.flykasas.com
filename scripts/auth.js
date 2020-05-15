@@ -110,10 +110,14 @@ createHandoverItem.addEventListener('submit', (e) => {
         positionQuestion : createHandoverItem['positionQuestion'].value,
         stationQuestion : createHandoverItem['stationQuestion'].value,
         questionCode : createHandoverItem['questionCode'].value,
+        hasAttachment : createHandoverItem['hasAttachment'].value
     }).then(() => {
         //close modal
         const modal = document.querySelector('#modal-add-handover-item');
         M.Modal.getInstance(modal).close();
+
+        //clear form
+        document.getElementById("add-handover-item-form").reset();
     }).catch(err => {
         console.log(err.message);
     })
