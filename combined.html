@@ -397,11 +397,26 @@
 
                         <!-- HANDOVER ITEMS LIST -->
                         <div class="container" style="margin-top: 40px; width: inherit; display: block">
-                            <ul class="collapsible z-depth-0 guides" style="border: none;">
+                            <ul class="collapsible z-depth-0 handoverItems" style="border: none;">
                                 
                             </ul>
                         </div>
                         <!-- END OF HANDOVER ITEMS LIST -->
+
+                        <!-- USER LIST -->
+                        <div class="container" style="margin-top: 40px; width: inherit; display: block">
+                            <ul class="collapsible z-depth-0 users" style="border: none;">
+                                
+                            </ul>
+                        </div>
+                        <!-- END OF USER LIST -->
+
+                        <!-- SUBMITTED HANDOVERS LIST -->
+                        <div class="container" style="margin-top: 40px; width: inherit; display: block">
+                            <ul class="collapsible z-depth-0 submittedHandovers" style="border: none;">
+                            </ul>
+                        </div>
+                        <!-- END OF SUBMITTED HANDOVERS LIST -->
 
                         <!-- ADD USER -->
                         <div class="container logged-in" style="margin-top: 40px; width: inherit; display: none;">
@@ -481,7 +496,7 @@
                                 </div>
                                 <div class="input-field">
                                     <input type="text" id="questionCode" required>
-                                    <label for="title">Item COde</label>
+                                    <label for="title">Item Code</label>
                                 </div>
                 
                                 <div class="input-field">
@@ -494,19 +509,21 @@
                                       <option value="Co-Pilot">Co-Pilot</option>
                                       <option value="Operations">Operations Officer</option>
                                       <option value="Engineer">Engineer</option>
+                                      <option value="allPositions">General</option>
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <label>Position</label>
+                                    <label>Station</label>
                                     <br/>
                                     <br/>
                                     <select id="stationQuestion" style="display: block;">
                                       <option value="" disabled selected>Select Station</option>
-                                      <option value="Captain">Juba</option>
-                                      <option value="Co-Pilot">Kalemie</option>
-                                      <option value="Operations">Bamako</option>
-                                      <option value="Engineer">Mogadishu</option>
-                                      <option value="Engineer">Nairobi</option>
+                                      <option value="Juba">Juba</option>
+                                      <option value="Kalemie">Kalemie</option>
+                                      <option value="Bamako">Bamako</option>
+                                      <option value="Mogadishu">Mogadishu</option>
+                                      <option value="Nairobi">Nairobi</option>
+                                      <option value="allStations">All stations</option>
                                     </select>
                                 </div>
                                 <div class="input-field">
@@ -525,9 +542,7 @@
                 
                                 <button class="darken-2 z-depth-0 addItemBtn">Add Item</button>
                             </form>
-
                         </div>
-                        
                         </div>
                         <!-- ADD HANDOVER ITEM -->
 

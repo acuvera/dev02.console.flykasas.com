@@ -8,15 +8,29 @@ auth.onAuthStateChanged(user => {
             user.admin = idTokenResult.claims.admin;
             setupUI(user);
         })
-        //get data
+        //get handover item data
         db.collection('CaptainQuestionItems').onSnapshot(snapshot => {
-            setupGuides(snapshot.docs);
+            setupHandoverItems(snapshot.docs);
+        }, err => {
+            console.log(err.message)
+        });
+        //get handovers data
+        db.collection('captain_handover').onSnapshot(snapshot => {
+            setupSubmittedHandoverItems(snapshot.docs);
+        }, err => {
+            console.log(err.message)
+        });
+        //get users data
+        db.collection('users').onSnapshot(snapshot => {
+            setupUserItems(snapshot.docs);
         }, err => {
             console.log(err.message)
         });
     } else{
         setupUI() 
-        setupGuides([]);
+        setupHandoverItems([]);
+        setupSubmittedHandoverItems([]);
+        setupUserItems([]);
     }
 });
 
@@ -73,6 +87,7 @@ registgerForm.addEventListener('submit', (e) => {
         registgerForm.reset();
     });
 });
+
 
 
 //Log out user 

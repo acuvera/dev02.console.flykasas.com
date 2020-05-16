@@ -1,4 +1,7 @@
-const guideList = document.querySelector('.guides');
+const handoverItemList = document.querySelector('.handoverItems');
+const submittedHandoversList = document.querySelector('.submittedHandovers');
+const userList = document.querySelector('.users');
+
 
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
@@ -35,28 +38,77 @@ const setupUI = (user) => {
 
     }
 }
-//set up guides 
-const setupGuides = (data) => {
+
+//set up handover items 
+const setupHandoverItems = (data) => {
 
     if (data.length){
         //create template stream
         let html = '';
         data.forEach(doc => {
-            const guide = doc.data();
+            const handoverItem = doc.data();
             const li = `
             <li>
-            <div class="collapsible-header Black lighten-4 white-text">${guide.QuestionTitle}</div>
-            <div class="collapsible-body white">${guide.QuestionItem}</div>
+            <div class="collapsible-header Black lighten-4 white-text">${handoverItem.QuestionTitle}</div>
+            <div class="collapsible-body white">${handoverItem.QuestionItem}</div>
             </li>
             `;
             html += li
         });
 
-        guideList.innerHTML = html;
+        handoverItemList.innerHTML = html;
 }else{
-    guideList.innerHTML = ``
+    handoverItemList.innerHTML = ``
 }
 }
+
+//SET UP SUBMITTED HANDOVER ITEMS
+const setupSubmittedHandoverItems = (data) => {
+    if (data.length){
+        //create template stream
+        let html = '';
+        data.forEach(doc => {
+            const submittedHandoverItem = doc.data();
+            const li = `
+            <li>
+            <div class="collapsible-header Black lighten-4 white-text">${submittedHandoverItem.departingCaptain}</div>
+            <div class="collapsible-body white">${submittedHandoverItem.handoverStatus}</div>
+            <div class="collapsible-body white">${submittedHandoverItem.pickedStation}</div>
+            <div class="collapsible-body white">${submittedHandoverItem.pickedAircraft}</div>
+            </li>
+            `;
+            html += li 
+        });
+        submittedHandoversList.innerHTML = html;
+    }else{
+        submittedHandoversList.innerHTML = ``
+    }
+
+}
+
+// SET UP USERS ITEMS
+const setupUserItems = (data) => {
+    if (data.length){
+        //create template stream 
+        let html = '';
+        data.forEach(doc => {
+            const userItems = doc.data();
+            const li = `
+            <li>
+            <div class="collapsible-header Black lighten-4 white-text">${userItems.name}</div>
+            <div class="collapsible-body white">${userItems.position}</div>
+            </li>
+            `;
+            html += li;
+        });
+        userList.innerHTML = html;
+    }else{
+        userList.innerHTML = ``
+    }
+}
+
+//Set up user view
+
 
 //DOM Manipulation
 
