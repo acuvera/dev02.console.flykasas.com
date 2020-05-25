@@ -9,8 +9,8 @@ auth.onAuthStateChanged(user => {
             setupUI(user);
         })
         //get handover item data
-        db.collection('CaptainQuestionItems').onSnapshot(snapshot => {
-            setupHandoverItems(snapshot.docs);
+        db.collection('CaptainQuestionItems').orderBy('questionCode').onSnapshot(snapshot => {
+            setupHandoverItems(snapshot.docs).orderBy("questionCode", "desc");
         }, err => {
             console.log(err.message)
         });

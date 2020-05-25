@@ -49,7 +49,7 @@ const setupHandoverItems = (data) => {
             const handoverItem = doc.data();
             const li = `
             <li>
-            <div class="collapsible-header Black lighten-4 white-text">${handoverItem.QuestionTitle}</div>
+            <div class="collapsible-header Black lighten-4 white-text"> ${handoverItem.questionCode}: ${handoverItem.QuestionTitle}</div>
             <div class="collapsible-body white">${handoverItem.QuestionItem}</div>
             </li>
             `;
